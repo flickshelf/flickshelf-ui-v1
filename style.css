@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Shadow&family=Share+Tech+Mono&display=swap');
+
+* {
+  margin: 0;
+}
+
+header {
+  width: 100%;
+  height: 150px;
+  background-color: #d1d8df; 
+}
+
+header h1 {
+  margin-left: 80px;
+  margin-top: 28px;
+  font-family: "Share Tech Mono";
+  font-size: 40px;
+}
+
+header .dark-blue-header {
+  background-color: #416289;
+  margin-left: 100px;
+  margin-right: 100px;
+  text-align: end;
+}
+
+header .dark-blue-header li {
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin: 4px;
+}
+
+.register-btn {
+  background-color: rgb(27, 26, 26);
+  color: white;
+  padding: 19.8px;
+  border: none;
+  margin-right: -4.5px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.register-btn:hover {
+  cursor: pointer;
+  background-color: whitesmoke;
+  color: black;
+}
+.m-list-btn {
+  background-color: #07a1de;
+   color: white;
+  padding: 19.8px;
+  border: none;
+  margin-right: -4.5px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.m-list-btn:hover {
+  cursor: pointer;
+  background-color: rgb(245, 245, 245);
+  color: #07a1de;
+}
+
+.s-list-btn {
+  background-color: #0866ff;
+  color: white;
+  padding: 19.8px;
+  border: none;
+  margin-right: -0.5px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.s-list-btn:hover {
+  cursor: pointer;
+  background-color: rgb(245, 245, 245);
+  color: #0866ff;
+}
+
+.input-container {
+  position: relative;
+  display: inline-block; 
+}
+
+.logout-btn {
+  width: 50px;
+  height: 56.05px;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  transition: 0.5s;
+  margin-left: -4.0px;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  font-size: 32px; 
+  pointer-events: none; 
+}
+
+.input-container:hover .logout-btn {
+  background-color: black; 
+}
+
+.input-container:hover .input-icon {
+  color: white; 
+}
+
+#form label {
+  margin: 7px;
+}
+
+#form textarea {
+  width: 472px;
+  height: 100px;
+  padding: 12px;
+  
+  max-width: 472px;
+  min-width: 472px;
+  max-height: 100px;
+  min-height: 100px;
+  resize: none;
+}
+
+/* COMEÇA O SWITCH */
+#check {
+  display: none;
+}
+
+.switch-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.switch-labels {
+  display: flex;
+  flex-direction: row;
+  gap: 88px;
+  margin-top: 12px;
+}
+
+.switch-labels h3 {
+  font-weight: bold;
+  font-size: 14px;
+  color: rgba(0, 0, 0, .6);
+  transition: 0.3s;
+
+  border: solid 2px transparent;
+  border-radius: 8px;
+  align-items: center;
+  display: flex;
+  padding: 4px;
+}
+
+.switch-labels h3.serie-active,
+.switch-labels h3.movie-active  {
+  color: #0866ff;
+  border: solid 2px #0866ff;
+  border-radius: 8px;
+}
+
+.switch {
+  position: relative;
+  background-color: #777;
+  width: 100px;
+  height: 20px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  transition: all .8s ease-in-out;
+  cursor: pointer;
+}
+
+.switch-icon {
+  position: absolute;
+  justify-content: center;
+  background-color: white;
+  align-items: center;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  transition: all .8s ease-in-out;
+  display: flex;
+}
+
+.arrow-icon {
+  width: 30px;
+}
+
+#check:checked + .switch {
+  background-color: #0866ff;
+}
+
+#check:checked + .switch .switch-icon {
+  transform: translate(60px);
+}
+
+#check:checked + .switch .arrow-icon {
+  transform: rotate(90deg);
+}
+
+/*FLIP DO CARD*/
+.flip-container {
+  perspective: 1000px;
+  display: flex;
+  justify-content: center; 
+  align-items: center;      
+}
+
+.flipper {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.front, .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+}
+
+.front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+.flip-container.flip .flipper {
+  transform: rotateY(180deg);
+}
+/*TERMINA O FLIP DO CARD*/
+
+/* TERMINA O SWITCH */
+
+.website-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2vh 0;
+}
+.title{
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+#logotipo {
+  width: 100px;
+  height: 90px;
+
+  position: absolute;  
+  left: 35px;
+  margin-top: 20px;
+  cursor: pointer;
+
+  border-radius: 20px;
+  border: 2px solid #416289;
+}
+
+body {
+  font-family: "Poppins";
+  background-color: #eeeaea;
+}
+
+.serie-creation-form {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  width: 500px;
+  border-radius: 12px;
+  padding: 15px;
+  background-color: white;
+  font-size: 15px;
+  margin-bottom: 18px;
+}
+
+.serie-update-form {
+  display: flex;
+  flex-direction: column;
+  height: 450px;
+  width: 500px;
+  padding: 15px;
+  background-color: white;
+  font-size: 15px;
+}
+
+.movie-creation-form {
+  display: none;
+  flex-direction: column;
+  height: 500px;
+  width: 500px;
+  border-radius: 12px;
+  padding: 15px;
+  background-color: white;
+  font-size: 15px;
+}
+
+.create-btn,
+.update-btn {
+  margin-top: 16px;
+  /* padding: 8px; */
+  color: white;
+  background-color: #0866ff;
+  border-radius: 4px;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  height: 30px;
+}
+
+.light-blue-footer {
+  margin-top: 150px;
+  width: 100%;
+  background-color: #d1d8df;
+  position: fixed;
+  bottom: 26px;
+}
+
+.dark-blue-footer {
+  background-color: #416289;
+  width: 100%;
+  height: 30px;
+  position: fixed;
+  bottom: 0;
+}
+
+.dark-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2px;
+  padding: 2px;
+  padding: 2px 110px; 
+}
+
+.dark-footer img {
+  width: 20px;
+  height: 20px;
+}
+
+.dark-footer a {
+  color: black;
+  text-decoration: none;
+}
+
+.dark-footer a:hover {
+  text-decoration: underline;
+}
+
+.social-items {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 110px;
+  gap: 4px;
+}
+
+.social-items .left-items {
+  display: flex;
+  align-items: center;
+}
+
+.social-items .left-items h3 {
+  font-family: "Share Tech Mono";
+  font-size: 36px;
+}
+
+.social-items .right-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-item {
+  width: 24px;
+  height: 24px;
+}
+
+.facebook-link {
+  width: 23.3px;
+  height: 23.3px;
+}
+
+.button-loader {
+  height: 20px;
+  width: 20px;
+}

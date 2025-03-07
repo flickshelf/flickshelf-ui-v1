@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./list-series.css">
+    <link rel="icon" type="img" href="../png/fav-icon.png">
+    <title>List - FlickShelf</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body onload="checkUserCredentials();listSeries()">
+    <header class="website-header">
+      <div class="dark-blue-header">
+        <div class="logo">
+          <a onclick="openRegisterPage()"><img id="logotipo" src="../png/temp-logo.png"></a>
+        </div>
+        <nav id="navegation">
+          <ul>
+            <input class="register-btn" type="button" value="Register" onclick="openRegisterPage()">
+            <input class="m-list-btn" type="button" value="Movies list" onclick="openListMoviesPage()">
+            <input class="s-list-btn" type="button" value="Series list" onclick="openListSeriesPage()">
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div id="empty-state-container">
+      <p class="empty-state-text">No series found. Add your first serie!</p>
+      <div class="empty-state-image">
+        <img src="../png/empty-state.png" alt="Empty state image" width="400px">
+      </div>
+    </div>
+  
+    <div class="website-content" id="list-series-container"></div>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>

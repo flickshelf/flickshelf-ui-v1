@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="img" href="png/fav-icon.png">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <title>FlickShelf</title>
+  </head>
+  <body onload="checkUserCredentials();setInitialState();fillPreviuosValues()">
+    <header class="website-header">
+      <a onclick="openRegisterPage()"><img id="logotipo" src="png/temp-logo.png" alt="FlickShelf logo"></a>
+
+      <div class="dark-blue-header">
+        <div class="logo">
+        </div>
+        <nav id="navigation">
+          <ul>
+            <input class="register-btn" type="button" value="Register" onclick="openRegisterPage()">
+            <input class="m-list-btn" type="button" value="Movies list" onclick="openListMoviesPage()">
+            <input class="s-list-btn" type="button" value="Series list" onclick="openListSeriesPage()">  
+            <div class="input-container">
+              <input class="logout-btn" type="button" onclick="logout()" value="">
+              <ion-icon name="log-out-outline" class="input-icon"></ion-icon>
+            </div>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="switch-container">
+      <div class="switch-labels">
+        <h3 id="serie-title-toggle">Create serie</h3>
+        <h3 id="movie-title-toggle">Create movie</h3>
+      </div>
+      <input type="checkbox" id="check" onclick="toggleContent()">
+      <label for="check" class="switch">
+        <span class="switch-icon">
+          <img class="arrow-icon" src="png/arrow-up-left.svg">
+        </span>
+      </label>
+    </div>
+
+    <div class="flip-container">
+      <div class="flipper">
+        <div class="front">
+            <div class="website-content">
+              <form id="form">
+                <div class="serie-creation-form" id="serie-form">
+                  <h2 class="title">Create your serie</h2>
+                  <label for="serie-title">Title</label>
+                  <input 
+                    id="serie-title"
+                    type="text" 
+                    placeholder="Type series title..."
+                    onblur="saveFilledValues()"
+                  >
+                  
+                  <label for="serie-genre">Genre</label>
+                  <select id="serie-genre" onchange="saveFilledValues()">
+                    <option value="">Select genre</option>
+                    <option value="comedy">Comedy</option>
+                    <option value="sitcom">Sitcom</option>
+                    <option value="scifi">Sci/Fi</option>
+                    <option value="horror">Horror</option>
+                    <option value="drama">Drama</option>
+                  </select>
+        
+                  <label for="serie-seasons">Seasons</label>
+                  <input 
+                    id="serie-seasons"
+                    type="number" 
+                    placeholder="Total seasons number"
+                    onblur="saveFilledValues()"
+                    min="1"
+                    max="50"
+                  >
+        
+                  <label for="serie-release-year">Release year</label>
+                  <input 
+                    id="serie-release-year"
+                    type="number" 
+                    placeholder="Serie release year"
+                    onblur="saveFilledValues()"
+                    min="1957"
+                    max="2024"
+                  >
+                
+                  <label for="serie-synopsis">Synopsis</label>
+                  <textarea 
+                    id="serie-synopsis" 
+                    name="Synopsis" 
+                    placeholder="Type serie synopsis..."
+                    onblur="saveFilledValues()"
+                  ></textarea>
+        
+                  <button class="create-btn" type="button" onclick="create()">Create</button>
+                </div>
+              </form>
+            </div>
+        </div>
+        
+        <div class="back">
+          <div class="website-content">
+            <form id="form">
+              <div class="movie-creation-form" id="movie-form">
+                <h2 class="title">Create your movie</h2>
+                <label for="movie-title">Title</label>
+                <input 
+                  id="movie-title"
+                  type="text" 
+                  placeholder="Type movie title..."
+                  onblur="saveFilledValues()"
+                >
+                
+                <label for="movie-genre">Genre</label>
+                <select id="movie-genre" onchange="saveFilledValues()">
+                  <option value="">Select genre</option>
+                  <option value="comedy">Comedy</option>
+                  <option value="sitcom">Sitcom</option>
+                  <option value="scifi">Sci/Fi</option>
+                  <option value="horror">Horror</option>
+                  <option value="drama">Drama</option>
+                </select>
+      
+                <label for="movie-release-year">Release year</label>
+                <input 
+                  id="movie-release-year"
+                  type="number" 
+                  placeholder="Movie release year"
+                  onblur="saveFilledValues()"
+                  min="1"
+                  max="2024"
+                >
+              
+                <label for="movies-synopsis">Synopsis</label>
+                <textarea 
+                  id="movies-synopsis" 
+                  name="Synopsis" 
+                  placeholder="Type movie synopsis..."
+                  onblur="saveFilledValues()"
+                ></textarea>
+      
+                <input class="create-btn" type="button" value="Create" onclick="create()">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./script.js"></script>
+  <footer>
+    <div class="light-blue-footer">
+      <div class="social-items">
+        <div class="left-items">
+          <h3>FlickShelf</h3>
+        </div>
+        <div class="right-items">
+          <p>Follow us</p>
+          <div>
+            <a href="#"><img class="social-item instagram-link" src="png/instagram.png" alt="Instagram logo"></a>
+            <a href="#"><img class="social-item twitter-link" src="png/twitter.png" alt="Twitter logo"></a>
+            <a href="#"><img class="facebook-link" src="png/facebook.png" alt="Facebook logo"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dark-blue-footer">
+      <div class="dark-footer">
+        <img src="png/email-icon.webp" alt="Email icon">
+        <p><a href="mailto:contact@seriescrud.com.br">contact@flickshelf.com</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

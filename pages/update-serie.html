@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>FlickShelf - Update form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <form id="form">
+        <div class="serie-update-form">
+            <label for="serie-title">Title</label>
+            <input 
+                id="serie-title"
+                type="text" 
+                placeholder="Type series title..."
+                oninput="handleCheckFormValues()"
+            >
+            
+            <label for="serie-genre">Genre</label>
+            <select id="serie-genre" oninput="handleCheckFormValues()">
+            <option value="">Select genre</option>
+            <option value="comedy">Comedy</option>
+            <option value="sitcom">Sitcom</option>
+            <option value="scifi">Sci/Fi</option>
+            <option value="horror">Horror</option>
+            <option value="drama">Drama</option>
+            </select>
+
+            <label for="serie-seasons">Seasons</label>
+            <input 
+                id="serie-seasons"
+                type="number" 
+                placeholder="Total seasons number"
+                min="1"
+                max="50"
+                oninput="handleCheckFormValues()"
+            >
+
+            <label for="serie-release-year">Release year</label>
+            <input 
+                id="serie-release-year"
+                type="number" 
+                placeholder="Serie release year"
+                min="1952"
+                max="2024"
+                oninput="handleCheckFormValues()"
+            >
+        
+            <label for="serie-synopsis">Synopsis</label>
+            <textarea 
+                id="serie-synopsis" 
+                name="Synopsis" 
+                placeholder="Type serie synopsis..."
+                oninput="handleCheckFormValues()"
+            ></textarea>
+        </div>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="update-serie.js"></script>
+</body>
+</html>
