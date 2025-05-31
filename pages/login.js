@@ -9,11 +9,10 @@ function login() {
         loginEmail,
         loginPassword
     }).then((res) => {
-        console.log(res.data)
-        const userId = res.data
+        const userData = JSON.stringify(res.data)
 
-        if (userId) {
-            storeUserCredentialsOnBrowser(userId)
+        if (userData) {
+            storeUserCredentialsOnBrowser(userData)
 
             window.location.pathname = '/index.html'
         } else {
@@ -26,8 +25,8 @@ function login() {
     })
 }
 
-function storeUserCredentialsOnBrowser (userId) {
-    localStorage.setItem('loggedUserId', userId)
+function storeUserCredentialsOnBrowser (userData) {
+    localStorage.setItem('loggedUser', userData)
 }
 
 function showPasswordSignUp() {
