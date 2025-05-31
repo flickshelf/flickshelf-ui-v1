@@ -167,6 +167,8 @@ function listSeries() {
   const listContainer = document.getElementById('list-series-container')
   const emptyState = document.getElementById('empty-state-container')
 
+  console.log(ownerId)
+
   listContainer.innerHTML = ''
   emptyState.classList.add('hidden')
   showLoadingSpinner()
