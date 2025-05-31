@@ -1,7 +1,7 @@
 let series = [];
 
 function checkUserCredentials () {
-  const isUserLogged = localStorage.getItem('loggedUserId')
+  const isUserLogged = localStorage.getItem('loggedUser')
 
   if (!isUserLogged && window.location.pathname !== '/pages/login.html') {
     window.location.pathname = '/pages/login.html'
@@ -13,7 +13,7 @@ function checkUserCredentials () {
 }
 
 function logout() {
-  localStorage.removeItem('loggedUserId')
+  localStorage.removeItem('loggedUser')
 
   const didConfirm = confirm('You are going to be logged out')
 
@@ -163,17 +163,15 @@ function openRegisterPage() {
 }
 
 function listSeries() {
-  const ownerId = localStorage.getItem('loggedUserId')
+  const ownerData = JSON.parse(localStorage.getItem('loggedUser'))
   const listContainer = document.getElementById('list-series-container')
   const emptyState = document.getElementById('empty-state-container')
-
-  console.log(ownerId)
 
   listContainer.innerHTML = ''
   emptyState.classList.add('hidden')
   showLoadingSpinner()
 
-  axios.get(`https://api.flickshelf.com/${ownerId}/series`)
+  axios.get(`https://api.flickshelf.com/${ownerData.id}/series`)
     .then(response => {
       series = response.data;
 
