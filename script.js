@@ -103,12 +103,12 @@ function create() {
     return alert("All informations needs to be filled!")
   } 
 
-  const ownerId = localStorage.getItem('loggedUserId')
+  const ownerData = JSON.parse(localStorage.getItem('loggedUser'));
 
   disableButton()
 
   axios.post('https://api.flickshelf.com/series', {
-      ownerId,
+      ownerId: ownerData.id,
       serieTitle: serieTitle.value,
       serieGenre: serieGenre.value,
       serieSeasons: serieSeasons.value,
