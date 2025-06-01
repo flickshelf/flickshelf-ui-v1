@@ -322,7 +322,7 @@ function showEditSerieModal(id) {
 
   const host = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost' 
     ? 'http://127.0.0.1:5500' 
-    : 'https://flickshelf.com'
+    : 'https://v1.flickshelf.com'
   iframe.setAttribute('src', `${host}/pages/update-serie.html`)
 
   iframe.setAttribute('name', id)
